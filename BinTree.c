@@ -6,12 +6,6 @@
 #include <stdlib.h>
 #include "BinTree.h"
 
-//typedef struct __bnode {
-//    int data;
-//    struct __bnode *left;
-//    struct __bnode *right;
-//} BinNode;
-
 static BinNode *AllocBinNode(void) {
     return calloc(1, sizeof(BinNode));
 }
