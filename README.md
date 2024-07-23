@@ -30,7 +30,8 @@
 
 ### Deque
 
-TODO
+- [IntDeque.c](https://github.com/BetaTester772/has-data-structure-and-algorithm-c99/blob/master/IntDeque.c)
+- [IntDeque.h](https://github.com/BetaTester772/has-data-structure-and-algorithm-c99/blob/master/IntDeque.h)
 
 ## 비선형 자료구조 (1)
 
