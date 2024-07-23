@@ -132,6 +132,30 @@
 - [RedBlack.c](https://github.com/BetaTester772/has-data-structure-and-algorithm-c99/blob/master/RedBlack.c)
 - [RedBlack.h](https://github.com/BetaTester772/has-data-structure-and-algorithm-c99/blob/master/RedBlack.h)
 
-## 탐색 알고리즘
+## Search Algorithm
 
-**TODO**
+### 순차 탐색 알고리즘
+
+*TODO*
+
+### 이진 탐색 알고리즘
+
+*TODO*
+
+### 보간 탐색 알고리즘
+
+*TODO*
+
+### 이진 탐색 트리
+
+*TODO*
+
+## Hashing
+
+### 선형 조사법(Linear Probing)
+
+*TODO*
+
+### 체이닝(Chaining)
+
+*TODO*
