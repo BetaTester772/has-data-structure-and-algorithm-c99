@@ -4,9 +4,25 @@
 
 *TODO 없이 비어있는 경우에는 구현이 없는 내용*
 
+*(오른쪽 위에 있는 ![image](https://github.com/user-attachments/assets/68d2c103-0d67-473d-9dbd-7129e565fc38) <-- 클릭시 편하게 목차를 볼
+수 있습니다)*
 
-*(오른쪽 위에 있는 ![image](https://github.com/user-attachments/assets/68d2c103-0d67-473d-9dbd-7129e565fc38) <-- 클릭시 편하게 목차를 볼 수 있습니다)*
+#### 실행
 
+* gcc로 컴파일 후 실행
+
+```bash
+gcc -o [파일명] [파일명].c
+./[파일명]
+```
+
+* CMake로 컴파일 후 실행
+
+```bash
+cmake .
+make
+./[파일명]
+```
 
 ## 선형 자료구조
 
