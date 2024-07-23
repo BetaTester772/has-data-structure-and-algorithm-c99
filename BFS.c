@@ -7,8 +7,8 @@
 #include "BFS.h"
 
 
-__avl_node *createNode(int v) {
-    __avl_node *newNode = malloc(sizeof(__avl_node));
+Node *createNode(int v) {
+    Node *newNode = malloc(sizeof(Node));
     newNode->vertex = v;
     newNode->link = NULL;
     return newNode;
@@ -18,7 +18,7 @@ Graph *createGraph(int vertices) {
     Graph *graph = malloc(sizeof(Graph));
     graph->numVertices = vertices;
 
-    graph->adjLists = malloc(vertices * sizeof(__avl_node *));
+    graph->adjLists = malloc(vertices * sizeof(Node *));
 
     graph->visited = malloc(vertices * sizeof(int));
 
@@ -31,7 +31,7 @@ Graph *createGraph(int vertices) {
 }
 
 void addEdge(Graph *graph, int s, int d) {
-    __avl_node *newNode = createNode(d);
+    Node *newNode = createNode(d);
     newNode->link = graph->adjLists[s];
     graph->adjLists[s] = newNode;
 
@@ -93,7 +93,7 @@ void bfs(Graph *graph, int startVertex) {
         int currentVertex = deQueue(q);
         printf("Visited %d\n", currentVertex);
 
-        __avl_node *temp = graph->adjLists[currentVertex];
+        Node *temp = graph->adjLists[currentVertex];
 
         while (temp) {
             int adjVertex = temp->vertex;

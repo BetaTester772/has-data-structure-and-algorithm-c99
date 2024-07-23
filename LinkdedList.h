@@ -11,13 +11,13 @@ typedef struct __node {
 } Node;
 
 typedef struct {
-    __avl_node *head;
-    __avl_node *crnt;
+    Node *head;
+    Node *crnt;
 } List;
 
 void Initialize(List *list);
 
-__avl_node *Search(List *list, int x);
+Node *Search(List *list, int x);
 
 void InsertFront(List *list, int x);
 

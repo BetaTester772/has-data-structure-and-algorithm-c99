@@ -6,8 +6,8 @@
 #include <stdlib.h>
 #include "Prim.h"
 
-__avl_node *createNode(int v, int weight) {
-    __avl_node *newNode = (__avl_node *) malloc(sizeof(__avl_node));
+Node *createNode(int v, int weight) {
+    Node *newNode = (Node *) malloc(sizeof(Node));
     newNode->vertex = v;
     newNode->weight = weight;
     newNode->next = NULL;
@@ -17,7 +17,7 @@ __avl_node *createNode(int v, int weight) {
 Graph *createGraph(int vertices) {
     Graph *graph = (Graph *) malloc(sizeof(Graph));
     graph->numVertices = vertices;
-    graph->adjLists = (__avl_node **) malloc(vertices * sizeof(__avl_node *));
+    graph->adjLists = (Node **) malloc(vertices * sizeof(Node *));
     graph->visited = (int *) malloc(vertices * sizeof(int));
 
     for (int i = 0; i < vertices; i++) {
@@ -29,7 +29,7 @@ Graph *createGraph(int vertices) {
 }
 
 void addEdge(Graph *graph, int src, int dest, int weight) {
-    __avl_node *newNode = createNode(dest, weight);
+    Node *newNode = createNode(dest, weight);
     newNode->next = graph->adjLists[src];
     graph->adjLists[src] = newNode;
 
@@ -49,7 +49,7 @@ int minKey(int key[], int mstSet[], int vertices) {
 void printMST(int parent[], int n, Graph *graph) {
     printf("Edge \tWeight\n");
     for (int i = 1; i < n; i++) {
-        __avl_node *temp = graph->adjLists[i];
+        Node *temp = graph->adjLists[i];
         while (temp) {
             if (temp->vertex == parent[i]) {
                 printf("%d - %d \t%d \n", parent[i], i, temp->weight);
@@ -78,7 +78,7 @@ void primMST(Graph *graph) {
         int u = minKey(key, mstSet, vertices);
         mstSet[u] = 1;
 
-        __avl_node *temp = graph->adjLists[u];
+        Node *temp = graph->adjLists[u];
         while (temp) {
             int v = temp->vertex;
             if (mstSet[v] == 0 && temp->weight < key[v]) {

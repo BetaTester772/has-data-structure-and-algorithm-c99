@@ -17,11 +17,11 @@ typedef struct {
 
 typedef struct {
     int numVertices;
-    __avl_node **adjLists;
+    Node **adjLists;
     int *visited;
 } Graph;
 
-__avl_node *createNode(int v, int weight);
+Node *createNode(int v, int weight);
 
 Graph *createGraph(int vertices);
 

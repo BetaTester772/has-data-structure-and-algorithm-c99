@@ -17,8 +17,8 @@
 //    int *visited;
 //} Graph;
 
-__avl_node *createNode(int v) {
-    __avl_node *newNode = malloc(sizeof(__avl_node));
+Node *createNode(int v) {
+    Node *newNode = malloc(sizeof(Node));
     newNode->vertex = v;
     newNode->link = NULL;
     return newNode;
@@ -28,7 +28,7 @@ Graph *createGraph(int vertices) {
     Graph *graph = malloc(sizeof(Graph));
     graph->numVertices = vertices;
 
-    graph->adjLists = malloc(vertices * sizeof(__avl_node *));
+    graph->adjLists = malloc(vertices * sizeof(Node *));
 
     graph->visited = malloc(vertices * sizeof(int));
 
@@ -41,7 +41,7 @@ Graph *createGraph(int vertices) {
 }
 
 void addEdge(Graph *graph, int s, int d) {
-    __avl_node *newNode = createNode(d);
+    Node *newNode = createNode(d);
     newNode->link = graph->adjLists[s];
     graph->adjLists[s] = newNode;
 
@@ -51,8 +51,8 @@ void addEdge(Graph *graph, int s, int d) {
 }
 
 void dfs(Graph *graph, int vertex) {
-    __avl_node *adjList = graph->adjLists[vertex];
-    __avl_node *temp = adjList;
+    Node *adjList = graph->adjLists[vertex];
+    Node *temp = adjList;
 
     graph->visited[vertex] = 1;
     printf("Visited %d \n", vertex);

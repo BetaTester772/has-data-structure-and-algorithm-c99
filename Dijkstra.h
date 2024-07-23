@@ -8,7 +8,7 @@
 #define MAX 1000
 #define INF 9999999
 
-typedef struct __avl_node {
+typedef struct Node {
     int vertex;
     int weight;
     struct __anode *next;

@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include "LinkdedList.h"
 
-static __avl_node *AllocNode(void) {
-    return calloc(1, sizeof(__avl_node));
+static Node *AllocNode(void) {
+    return calloc(1, sizeof(Node));
 }
 
 void Initialize(List *list) {
@@ -14,8 +14,8 @@ void Initialize(List *list) {
     list->crnt = NULL;
 }
 
-__avl_node *Search(List *list, int x) {
-    __avl_node *ptr = list->head;
+Node *Search(List *list, int x) {
+    Node *ptr = list->head;
     while (ptr != NULL) {
         if (ptr->data == x) {
             list->crnt = ptr;
@@ -27,7 +27,7 @@ __avl_node *Search(List *list, int x) {
 }
 
 void InsertFront(List *list, int x) {
-    __avl_node *ptr = list->head;
+    Node *ptr = list->head;
     list->head = list->crnt = AllocNode();
     list->head->data = x;
     list->head->next = ptr;
@@ -37,7 +37,7 @@ void InsertRear(List *list, int x) {
     if (list->head == NULL) {
         InsertFront(list, x);
     } else {
-        __avl_node *ptr = list->head;
+        Node *ptr = list->head;
         while (ptr->next != NULL) {
             ptr = ptr->next;
         }
@@ -48,7 +48,7 @@ void InsertRear(List *list, int x) {
 
 void RemoveFront(List *list) {
     if (list->head != NULL) {
-        __avl_node *ptr = list->head->next;
+        Node *ptr = list->head->next;
         free(list->head);
         list->head = list->crnt = ptr;
     }
@@ -59,8 +59,8 @@ void RemoveRear(List *list) {
         if ((list->head)->next == NULL) {
             RemoveFront(list);
         } else {
-            __avl_node *ptr = list->head;
-            __avl_node *pre;
+            Node *ptr = list->head;
+            Node *pre;
             while (ptr->next != NULL) {
                 pre = ptr;
                 ptr = ptr->next;
@@ -77,7 +77,7 @@ void RemoveCurrent(List *list) {
         if (list->crnt == list->head) {
             RemoveFront(list);
         } else {
-            __avl_node *ptr = list->head;
+            Node *ptr = list->head;
             while (ptr->next != list->crnt) {
                 ptr = ptr->next;
             }
@@ -107,7 +107,7 @@ void Print(const List *list) {
     if (list->head == NULL) {
         puts("노드가 없습니다.");
     } else {
-        __avl_node *ptr = list->head;
+        Node *ptr = list->head;
         puts("각 노드의 데이터를 출력합니다.");
         while (ptr != NULL) {
             printf("%d ", ptr->data);
