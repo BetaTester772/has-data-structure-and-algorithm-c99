@@ -7,8 +7,8 @@
 #include <limits.h>
 #include "Dijkstra.h"
 
-__anode *createNode(int v, int weight) {
-    __anode *newNode = (__anode *) malloc(sizeof(__anode));
+Node *createNode(int v, int weight) {
+    Node *newNode = (Node *) malloc(sizeof(Node));
     newNode->vertex = v;
     newNode->weight = weight;
     newNode->next = NULL;
@@ -18,7 +18,7 @@ __anode *createNode(int v, int weight) {
 Graph *createGraph(int vertices) {
     Graph *graph = (Graph *) malloc(sizeof(Graph));
     graph->numVertices = vertices;
-    graph->adjLists = (__anode **) malloc(vertices * sizeof(__anode *));
+    graph->adjLists = (Node **) malloc(vertices * sizeof(Node *));
     graph->dist = (int *) malloc(vertices * sizeof(int));
     graph->prev = (int *) malloc(vertices * sizeof(int));
 
@@ -32,7 +32,7 @@ Graph *createGraph(int vertices) {
 }
 
 void addEdge(Graph *graph, int src, int dest, int weight) {
-    __anode *newNode = createNode(dest, weight);
+    Node *newNode = createNode(dest, weight);
     newNode->next = graph->adjLists[src];
     graph->adjLists[src] = newNode;
 }
@@ -80,7 +80,7 @@ void dijkstra(Graph *graph, int startVertex) {
         int u = minDistance(dist, sptSet, vertices);
         sptSet[u] = 1;
 
-        __anode *temp = graph->adjLists[u];
+        Node *temp = graph->adjLists[u];
         while (temp != NULL) {
             int v = temp->vertex;
 
