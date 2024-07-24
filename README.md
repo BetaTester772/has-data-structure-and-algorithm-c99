@@ -161,7 +161,8 @@
 
 ### 선형 조사법(Linear Probing)
 
-*TODO*
+- [ClosedHash.c](ClosedHash.c)
+- [ClosedHash.h](ClosedHash.h)
 
 ### 체이닝(Chaining)
 
