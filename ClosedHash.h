@@ -1,5 +1,5 @@
 //
-// Created by hoseo on 2024-07-24.
+// Created by hoseong on 2024-07-24.
 //
 
 #ifndef DATASTRUCTUREANDALGORITHM_CLOSEDHASH_H
