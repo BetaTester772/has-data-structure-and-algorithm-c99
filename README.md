@@ -161,9 +161,9 @@
 
 ### 선형 조사법(Linear Probing)
 
-- [ChainHash.c](ChainHash.c)
-- [ChainHash.h](ChainHash.h)
+*TODO*
 
 ### 체이닝(Chaining)
 
-*TODO*
+- [ChainHash.c](ChainHash.c)
+- [ChainHash.h](ChainHash.h)
